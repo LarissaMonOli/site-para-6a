@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viagem no Tempo | Quiz de História - 6º Ano</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ CABEÇALHO ============ -->
+  <header class="cabecalho">
+    <h1 class="logo">⏳ Viagem no Tempo</h1>
+    <p class="subtitulo">Quiz de História • 6º ano do Ensino Fundamental</p>
+  </header>
+
+  <!-- ============ CONTEÚDO PRINCIPAL ============ -->
+  <main class="palco">
+
+    <!-- ---------- TELA 1: INÍCIO ---------- -->
+    <section id="tela-inicio" class="tela ativa" aria-labelledby="titulo-inicio">
+      <div class="cartao">
+        <div class="icones-inicio" aria-hidden="true">
+          <span>🏺</span><span>🔺</span><span>🏛️</span><span>🐫</span>
+        </div>
+
+        <h2 id="titulo-inicio" class="titulo-tela">Pronto para viajar ao passado?</h2>
+
+        <p class="texto-inicio">
+          Responda <strong>10 perguntas</strong> sobre as grandes civilizações da Antiguidade:
+          Pré-História, Mesopotâmia, Egito, Grécia e Roma.
+        </p>
+
+        <ul class="regras">
+          <li><span class="emoji">✅</span> Cada resposta certa vale <strong>10 pontos</strong></li>
+          <li><span class="emoji">❌</span> Não existem vidas: erre à vontade e aprenda!</li>
+          <li><span class="emoji">💡</span> Você recebe uma explicação a cada resposta</li>
+        </ul>
+
+        <button id="btn-comecar" class="btn btn--grande" type="button">
+          ▶ Começar o Quiz
+        </button>
+      </div>
+    </section>
+
+    <!-- ---------- TELA 2: QUIZ ---------- -->
+    <section id="tela-quiz" class="tela" aria-labelledby="texto-pergunta">
+      <div class="cartao">
+
+        <div class="barra-info">
+          <span class="info-item">
+            📋 Pergunta <strong id="numero-pergunta">1</strong>/<span id="total-perguntas">10</span>
+          </span>
+          <span class="info-item">
+            ⭐ Pontos: <strong id="pontuacao">0</strong>
+          </span>
+        </div>
+
+        <div class="barra-progresso" id="barra" role="progressbar"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+             aria-label="Progresso do quiz">
+          <div class="barra-progresso__preenchimento" id="progresso"></div>
+        </div>
+
+        <h2 id="texto-pergunta" class="pergunta">Carregando pergunta...</h2>
+
+        <div id="alternativas" class="alternativas"></div>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+
+        <button id="btn-proxima" class="btn btn--proxima escondido" type="button">
+          Próxima ➜
+        </button>
+      </div>
+    </section>
+
+    <!-- ---------- TELA 3: FINAL ---------- -->
+    <section id="tela-final" class="tela" aria-labelledby="titulo-final">
+      <div class="cartao cartao--final">
+        <div id="medalha" class="medalha" aria-hidden="true">🏆</div>
+
+        <h2 id="titulo-final" class="titulo-tela">Fim da viagem!</h2>
+        <p id="mensagem-final" class="mensagem-final"></p>
+
+        <div class="placar">
+          <div class="placar-item">
+            <span class="placar-numero" id="acertos-finais">0</span>
+            <span class="placar-rotulo">Acertos</span>
+          </div>
+          <div class="placar-item">
+            <span class="placar-numero" id="erros-finais">0</span>
+            <span class="placar-rotulo">Erros</span>
+          </div>
+          <div class="placar-item">
+            <span class="placar-numero" id="pontos-finais">0</span>
+            <span class="placar-rotulo">Pontos</span>
+          </div>
+        </div>
+
+        <button id="btn-reiniciar" class="btn btn--grande" type="button">
+          🔄 Jogar Novamente
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <p>Projeto de Desenvolvimento Web • História para o 6º ano 💜</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
