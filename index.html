@@ -1,123 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viagem no Tempo | Quiz de História - 6º Ano</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expedição Arqueológica | História • 6º ano</title>
 
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Caveat:wght@600;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ============ CABEÇALHO ============ -->
-  <header class="cabecalho">
-    <h1 class="logo">⏳ Viagem no Tempo</h1>
-    <p class="subtitulo">Quiz de História • 6º ano do Ensino Fundamental</p>
-  </header>
+<!-- ============================================================
+     CABEÇALHO / BARRA DE STATUS DA EXPEDIÇÃO
+     ============================================================ -->
+<header class="cabecalho">
+  <div class="cabecalho__marca">
+    <span class="cabecalho__icone" aria-hidden="true">🏺</span>
+    <div class="cabecalho__texto">
+      <h1 class="logo">Expedição Arqueológica</h1>
+      <p class="subtitulo">Em busca dos artefatos perdidos • História 6º ano</p>
+    </div>
+  </div>
 
-  <!-- ============ CONTEÚDO PRINCIPAL ============ -->
-  <main class="palco">
+  <div class="status" role="status" aria-live="polite">
+    <div class="status__item">
+      <span class="status__rotulo">Sítio</span>
+      <strong class="status__valor" id="status-fase">–</strong>
+    </div>
+    <div class="status__item">
+      <span class="status__rotulo">Pontos</span>
+      <strong class="status__valor" id="status-pontos">0</strong>
+    </div>
+    <div class="status__item">
+      <span class="status__rotulo">Acervo</span>
+      <strong class="status__valor" id="status-acervo">0/5</strong>
+    </div>
+  </div>
+</header>
 
-    <!-- ---------- TELA 1: INÍCIO ---------- -->
-    <section id="tela-inicio" class="tela ativa" aria-labelledby="titulo-inicio">
-      <div class="cartao">
-        <div class="icones-inicio" aria-hidden="true">
-          <span>🏺</span><span>🔺</span><span>🏛️</span><span>🐫</span>
-        </div>
+<!-- ============================================================
+     PALCO PRINCIPAL
+     ============================================================ -->
+<main class="palco">
 
-        <h2 id="titulo-inicio" class="titulo-tela">Pronto para viajar ao passado?</h2>
+  <!-- ----------------------------------------------------------
+       TELA 1 — BRIEFING DA EXPEDIÇÃO
+       ---------------------------------------------------------- -->
+  <section id="tela-inicio" class="tela ativa" aria-labelledby="titulo-inicio">
+    <div class="pergaminho pergaminho--centro">
 
-        <p class="texto-inicio">
-          Responda <strong>10 perguntas</strong> sobre as grandes civilizações da Antiguidade:
-          Pré-História, Mesopotâmia, Egito, Grécia e Roma.
-        </p>
-
-        <ul class="regras">
-          <li><span class="emoji">✅</span> Cada resposta certa vale <strong>10 pontos</strong></li>
-          <li><span class="emoji">❌</span> Não existem vidas: erre à vontade e aprenda!</li>
-          <li><span class="emoji">💡</span> Você recebe uma explicação a cada resposta</li>
-        </ul>
-
-        <button id="btn-comecar" class="btn btn--grande" type="button">
-          ▶ Começar o Quiz
-        </button>
+      <div class="icones-inicio" aria-hidden="true">
+        <span>⛏️</span><span>🖌️</span><span>🏺</span><span>🏛️</span>
       </div>
-    </section>
 
-    <!-- ---------- TELA 2: QUIZ ---------- -->
-    <section id="tela-quiz" class="tela" aria-labelledby="texto-pergunta">
-      <div class="cartao">
+      <h2 id="titulo-inicio" class="titulo-tela">Bem-vindo à Expedição!</h2>
 
-        <div class="barra-info">
-          <span class="info-item">
-            📋 Pergunta <strong id="numero-pergunta">1</strong>/<span id="total-perguntas">10</span>
-          </span>
-          <span class="info-item">
-            ⭐ Pontos: <strong id="pontuacao">0</strong>
-          </span>
+      <p class="texto-inicio">
+        O <strong>Museu de História</strong> contratou você para liderar uma escavação.
+        Em cada sítio arqueológico existe uma relíquia escondida sob a poeira dos séculos.
+        <strong>Escave, descubra e responda</strong> para montar a grande exposição
+        <em>“Ecos do Passado”</em>.
+      </p>
+
+      <ul class="regras">
+        <li><span class="regras__emoji">🖌️</span> Escove a poeira do sítio para <strong>revelar o artefato</strong></li>
+        <li><span class="regras__emoji">❓</span> Responda <strong>2 perguntas</strong> sobre cada relíquia (10 no total)</li>
+        <li><span class="regras__emoji">🎒</span> Use as <strong>ferramentas do arqueólogo</strong> quando precisar</li>
+        <li><span class="regras__emoji">🏛️</span> Cada acerto vale <strong>10 pontos</strong> e enche o acervo do museu</li>
+      </ul>
+
+      <button id="btn-comecar" class="btn btn--grande" type="button">
+        ⛏️ Iniciar Expedição
+      </button>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------
+       TELA 2 — SÍTIO DE ESCAVAÇÃO + CADERNETA DE CAMPO
+       ---------------------------------------------------------- -->
+  <section id="tela-expedicao" class="tela" aria-label="Sítio de escavação e caderneta de campo">
+    <div class="expedicao">
+
+      <!-- ===== PAINEL ESQUERDO: SÍTIO ARQUEOLÓGICO ===== -->
+      <section class="painel painel--sitio" aria-label="Sítio arqueológico">
+
+        <header class="painel__cabecalho">
+          <span class="selo" id="sitio-era">Pré-História</span>
+          <span class="local" id="sitio-local">Caverna de Altamira · Espanha</span>
+        </header>
+
+        <div class="sitio" id="sitio">
+          <div class="artefato" id="artefato-visual" aria-hidden="true">🪓</div>
+          <canvas id="lona" class="lona" aria-label="Camada de poeira. Passe o mouse ou o dedo para escavar."></canvas>
+          <div class="particulas" id="particulas" aria-hidden="true"></div>
+          <div class="descoberta" id="descoberta" aria-live="polite"></div>
         </div>
 
-        <div class="barra-progresso" id="barra" role="progressbar"
-             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
-             aria-label="Progresso do quiz">
-          <div class="barra-progresso__preenchimento" id="progresso"></div>
+        <div class="escavacao">
+          <p class="instrucao" id="instrucao-escavacao">🖌️ Escove a poeira com o mouse ou com o dedo</p>
+          <div class="medidor" id="medidor" role="progressbar"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+               aria-label="Progresso da escavação">
+            <div class="medidor__barra" id="medidor-barra"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PAINEL DIREITO: CADERNETA DE CAMPO ===== -->
+      <section class="painel painel--caderneta" aria-label="Caderneta de campo">
+
+        <header class="painel__cabecalho">
+          <h2 class="painel__titulo">📓 Caderneta de Campo</h2>
+          <span class="selo selo--pergunta" id="contador-pergunta">Pergunta 1/2</span>
+        </header>
+
+        <div class="caderneta__corpo">
+          <p class="bloqueio" id="bloqueio">
+            🔒 O pergaminho está selado. Escave o sítio arqueológico para revelar a relíquia!
+          </p>
+
+          <div class="pergunta-area escondido" id="pergunta-area">
+            <p class="pergunta" id="texto-pergunta"></p>
+
+            <div class="alternativas" id="alternativas"></div>
+
+            <div class="feedback" id="feedback" aria-live="polite"></div>
+
+            <button id="btn-proxima" class="btn btn--proxima escondido" type="button">
+              Próxima ➜
+            </button>
+          </div>
         </div>
 
-        <h2 id="texto-pergunta" class="pergunta">Carregando pergunta...</h2>
+        <!-- ===== FERRAMENTAS DO ARQUEÓLOGO ===== -->
+        <div class="ferramentas" id="ferramentas" role="group" aria-label="Ferramentas do arqueólogo">
+          <button class="ferramenta" id="ferramenta-pincel" type="button" disabled
+                  title="Limpa 2 alternativas incorretas">
+            <span class="ferramenta__icone" aria-hidden="true">🖌️</span>
+            <span class="ferramenta__nome">Pincel de Precisão</span>
+            <span class="ferramenta__cargas" id="cargas-pincel">3</span>
+          </button>
 
-        <div id="alternativas" class="alternativas"></div>
+          <button class="ferramenta" id="ferramenta-lupa" type="button" disabled
+                  title="Revela uma pista no Diário de Campo">
+            <span class="ferramenta__icone" aria-hidden="true">🔍</span>
+            <span class="ferramenta__nome">Lupa de Análise</span>
+            <span class="ferramenta__cargas" id="cargas-lupa">3</span>
+          </button>
 
-        <div id="feedback" class="feedback" aria-live="polite"></div>
+          <button class="ferramenta" id="ferramenta-caderno" type="button" disabled
+                  title="Permite tentar responder novamente">
+            <span class="ferramenta__icone" aria-hidden="true">📜</span>
+            <span class="ferramenta__nome">Caderno de Anotações</span>
+            <span class="ferramenta__cargas" id="cargas-caderno">2</span>
+          </button>
+        </div>
 
-        <button id="btn-proxima" class="btn btn--proxima escondido" type="button">
-          Próxima ➜
-        </button>
+        <!-- ===== DIÁRIO DE CAMPO ===== -->
+        <div class="diario">
+          <h3 class="diario__titulo">🗒️ Diário de Campo</h3>
+          <ul class="diario__lista" id="diario-lista">
+            <li class="diario__item diario__item--sistema">
+              Bem-vindo, arqueólogo! Suas descobertas e anotações aparecerão aqui.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------
+       TELA 3 — GALERIA DO MUSEU (FINAL)
+       ---------------------------------------------------------- -->
+  <section id="tela-galeria" class="tela" aria-labelledby="titulo-galeria">
+    <div class="pergaminho pergaminho--centro pergaminho--museu">
+
+      <p class="museu__selo">Museu de História</p>
+      <h2 id="titulo-galeria" class="titulo-tela">Exposição “Ecos do Passado”</h2>
+      <p class="museu__mensagem" id="galeria-mensagem"></p>
+
+      <div class="vitrine" id="vitrine"></div>
+
+      <div class="placar">
+        <div class="placar__item">
+          <span class="placar__numero" id="final-acertos">0</span>
+          <span class="placar__rotulo">Acertos</span>
+        </div>
+        <div class="placar__item">
+          <span class="placar__numero" id="final-erros">0</span>
+          <span class="placar__rotulo">Erros</span>
+        </div>
+        <div class="placar__item">
+          <span class="placar__numero" id="final-pontos">0</span>
+          <span class="placar__rotulo">Pontos</span>
+        </div>
+        <div class="placar__item">
+          <span class="placar__numero" id="final-reliquias">0/5</span>
+          <span class="placar__rotulo">Relíquias</span>
+        </div>
       </div>
-    </section>
 
-    <!-- ---------- TELA 3: FINAL ---------- -->
-    <section id="tela-final" class="tela" aria-labelledby="titulo-final">
-      <div class="cartao cartao--final">
-        <div id="medalha" class="medalha" aria-hidden="true">🏆</div>
+      <button id="btn-reiniciar" class="btn btn--grande" type="button">
+        🔄 Nova Expedição
+      </button>
+    </div>
+  </section>
 
-        <h2 id="titulo-final" class="titulo-tela">Fim da viagem!</h2>
-        <p id="mensagem-final" class="mensagem-final"></p>
+</main>
 
-        <div class="placar">
-          <div class="placar-item">
-            <span class="placar-numero" id="acertos-finais">0</span>
-            <span class="placar-rotulo">Acertos</span>
-          </div>
-          <div class="placar-item">
-            <span class="placar-numero" id="erros-finais">0</span>
-            <span class="placar-rotulo">Erros</span>
-          </div>
-          <div class="placar-item">
-            <span class="placar-numero" id="pontos-finais">0</span>
-            <span class="placar-rotulo">Pontos</span>
-          </div>
-        </div>
+<!-- ============================================================
+     RODAPÉ
+     ============================================================ -->
+<footer class="rodape">
+  <p>⛏️ Expedição Arqueológica • Projeto de História para o 6º ano do Ensino Fundamental</p>
+</footer>
 
-        <button id="btn-reiniciar" class="btn btn--grande" type="button">
-          🔄 Jogar Novamente
-        </button>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============ RODAPÉ ============ -->
-  <footer class="rodape">
-    <p>Feito por Larissa • História para o 6º ano 💜</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
